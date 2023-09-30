@@ -1,11 +1,12 @@
 const handleDigitClick = (event) => {
   const displayElm = document.querySelector('.display');
-  const obsah = event.target.textContent;
-  if (displayElm.textContent === '0') {
-    return (displayElm.textContent = obsah);
-  } else if (displayElm.textContent.length < 9) {
-    displayElm.textContent += obsah;
+  const digit = event.target.textContent;
+  if (displayElm.textContent.length >= 9) {
+    return;
+  } else if (displayElm.textContent === '0') {
+    return (displayElm.textContent = digit);
   }
+  displayElm.textContent += digit;
 };
 
 document.querySelector('#btn-0').addEventListener('click', handleDigitClick);
